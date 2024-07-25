@@ -14,7 +14,7 @@ nav {
 
 .navbar {
     background-color: #FF7D29;
-    padding: 1rem 2rem;
+    padding: 0rem 2rem;
     position: fixed;
     top: 0;
     width: 100%;
@@ -22,10 +22,8 @@ nav {
 }
 
 .navbar-brand {
-    background-color: #F5FEFF;
-    border: 2px solid #000000; /* Soft border */
-    border-radius: 5px; /* Rounded corners for the soft border */
-    padding: 0.5rem 1rem;
+
+    padding: 0.5rem 0.5rem;
     font-family: monospace;
     font-weight: bold;
 }
@@ -175,13 +173,14 @@ section h2 {
 }
 /* Modal Styling */
 .modal-content {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 10px;
 }
 
 .modal-header {
     background-color: #FF7D29;
-    color: #fff;
+    color: #000000;
+    
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -219,6 +218,7 @@ section h2 {
     border-radius: 25px;
 }
 
+
 .btn-get-now:hover {
     background-color: #000000;
     color: #FF7D29;
@@ -247,19 +247,33 @@ section h2 {
     background-color: #FF7D29;
     border: none;
     color: #000000;
-    padding: 10px 20px;
+    padding: 5px 205px;
     border-radius: 25px;
     font-weight: bold;
     border: 2px solid black;
 }
-
 .btn-login-inside:hover {
     background-color: #000000;
     color: #FF7D29;
     border-radius: 25px;
     border: 2px solid black;
 }
+.btn-reg-inside {
+    background-color: #FF7D29;
+    border: none;
+    color: #000000;
+    padding: 10px 70px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid black;
+}
 
+.btn-reg-inside:hover {
+    background-color: #000000;
+    color: #FF7D29;
+    border-radius: 25px;
+    border: 2px solid black;
+}
 /* Learn More Button Styling */
 .btn-learn-more {
     background-color: #FF7D29;

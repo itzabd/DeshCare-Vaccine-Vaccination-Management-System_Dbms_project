@@ -35,29 +35,45 @@
                 <a href="history.html" class="text-gray-300 hover:text-white px-3 py-2 rounded">History</a>
                 <a href="medicalprofile.html" class="text-gray-300 hover:text-white px-3 py-2 rounded">Medical Profile</a>
                 <a href="../Abdullah/checkupStatus.html" class="text-gray-300 hover:text-white px-3 py-2 rounded ">Appointment Status</a>
-                </div>
+            </div>
             <!-- User Icon -->
             <div class="flex items-center">
                 <div class="w-8 h-8 bg-gray-600 rounded-full flex items-center justify-center text-white">
-                    <a href="homepage.html" class="selected text-white bg-gray-700 px-3 py-2 rounded-full">U</a>
+                    <a href="homepage.html" class="selected text-white bg-gray-700 px-3 py-2 rounded-full">Profile</a>
                 </div>
             </div>
         </div>
     </nav>
 
-
     <!-- Profile Section -->
     <section id="profile" class="container mx-auto mt-6">
         <h2 class="text-2xl font-bold mb-4">User Profile</h2>
         <div class="bg-white p-6 rounded-lg shadow-md">
-            <p class="text-gray-600 mb-1"><strong>Full Name:</strong> John Doe</p>
-            <p class="text-gray-600 mb-1"><strong>Address:</strong> 123 Main St, Springfield, IL 62704</p>
-            <p class="text-gray-600 mb-1"><strong>Gender:</strong> Male</p>
-            <p class="text-gray-600 mb-1"><strong>Email:</strong> johndoe@example.com</p>
-            <p class="text-gray-600 mb-1"><strong>Phone Number:</strong> (555) 123-4567</p>
-            <p class="text-gray-600 mb-1"><strong>Date of Birth:</strong> January 1, 1950</p>
+            <?php
+            session_start();
+            if (isset($_SESSION['user'])) {
+                $user = $_SESSION['user'];
+                // Combine First_name and Last_name for Full Name
+                $full_name = $user['First_name'] . ' ' . $user['Last_name'];
+                // Use Country instead of Email
+                $country = $user['Country'];
+                // Combine address components
+                $address = $user['House_no'] . ', ' . $user['Road'] . ', ' . $user['Thana_name'] . ', ' . $user['Zip'] . ', ' . $user['City'];
+            ?>
+            <p class="text-gray-600 mb-1"><strong>Full Name:</strong> <?php echo $full_name; ?></p>
+            <p class="text-gray-600 mb-1"><strong>Address:</strong> <?php echo $address; ?></p>
+            <p class="text-gray-600 mb-1"><strong>Gender:</strong> <?php echo $user['Gender']; ?></p>
+            <p class="text-gray-600 mb-1"><strong>Country:</strong> <?php echo $country; ?></p>
+            <p class="text-gray-600 mb-1"><strong>Phone Number:</strong> <?php echo $user['Contact_no']; ?></p>
+            <p class="text-gray-600 mb-1"><strong>Date of Birth:</strong> <?php echo $user['Date_of_Birth']; ?></p>
+            <?php
+            } else {
+                echo "<p>User data not found.</p>";
+            }
+            ?>
         </div>
     </section>
+
     <footer class="footer bg-dark text-light py-5">
         <div class="container">
             <div class="row">
